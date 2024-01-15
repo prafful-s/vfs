@@ -1,0 +1,75 @@
+name: Deploy Converter
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/deploy-converter.yaml
+      - tools/actions/**
+      - tools/importer/**
+      - paths.yaml
+      - converter.yaml
+      - package-lock.json
+  push:
+    paths:
+      - .github/workflows/deploy-converter.yaml
+      - tools/actions/**
+      - tools/importer/**
+      - paths.yaml
+      - converter.yaml
+      - package-lock.json
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Cache node modules
+      id: cache-npm
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+    - run: npm ci
+    - run: npm run converter:test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Cache node modules
+      id: cache-npm
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+    - run: npm ci
+    - run: npm run converter:build:prod
+    - run: npm run converter:deploy -- convert/${ACTION_NAME}
+      env:
+        ACTION_NAME: ${{ github.head_ref || github.ref_name }}
+        WSK_AUTH: 1dc46261-8b44-48be-896d-d424faaaea05:Hr2Yx77hm8SXm0ppfl3024kFREGpUiS3qhX53OL7J5p7ioV2xn2TyV7coT3jb5Ca
+        WSK_NAMESPACE: 245265-xwalk-vfsglobaldemo
+#${{ secrets.WSK_AUTH }}
