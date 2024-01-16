@@ -70,6 +70,5 @@ jobs:
     - run: npm run converter:deploy -- convert/${ACTION_NAME}
       env:
         ACTION_NAME: ${{ github.head_ref || github.ref_name }}
-        WSK_AUTH: 1dc46261-8b44-48be-896d-d424faaaea05:Hr2Yx77hm8SXm0ppfl3024kFREGpUiS3qhX53OL7J5p7ioV2xn2TyV7coT3jb5Ca
-        WSK_NAMESPACE: 245265-xwalk-vfsglobaldemo
-#${{ secrets.WSK_AUTH }}
+        WSK_AUTH: ${{ secrets.WSK_AUTH }}
+        WSK_NAMESPACE: ${{ secrets.WSK_NAMESPACE }}
