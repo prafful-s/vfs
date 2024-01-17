@@ -19,20 +19,63 @@ function createHeroBlock({ main, document }) {
   [...main.querySelectorAll('.cmp-container')].some((container) => {
     if (container.getAttribute('style')?.match(/background-image/)) {
       // parse background-image from style
-      const imgSrc = '';
+      const imgSrc = 'https://www.vfsglobal.com/india-evisa-uk/assets/images/vfs-images/banner-content.png';
       const img = document.createElement('img');
       img.src = imgSrc;
 
       // find all text elements
-      const textContent = [...container.querySelectorAll('p', 'h1', 'h2')];
+      //const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
+      const h1Content = [...container.querySelectorAll('h1')][0].innerHTML;
+      const h2Content = [...container.querySelectorAll('h2')][0].innerHTML;
+      
+    
+      const h1Txt = document.createElement('h1');
+      h1Txt.innerHTML = h1Content;
+
+      const h2Txt = document.createElement('h2');
+      h2Txt.innerHTML = h2Content;
 
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
         ['hero'],
         // 2 row
         [img],
-        // 3 row
-        [textContent],
+        [h1Txt,h2Txt]
+        
+      ], document);
+
+      container.replaceWith(block);
+      return true;
+    }
+    return false;
+  });
+}
+
+function createTeaserBlock({ main, document }) {
+  [...main.querySelectorAll('.cmp-container')].some((container) => {
+    if (container.querySelector(".cmp-text")) {
+      // parse background-image from style
+      
+
+      // find all text elements
+      //const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
+      const h1Content = container.querySelector('h2').innerHTML;
+      const pContent = container.querySelector('p').innerHTML;
+      
+    
+      const h1Txt = document.createElement('h1');
+      h1Txt.innerHTML = h1Content;
+
+      const h2Txt = document.createElement('h2');
+      h2Txt.innerHTML = h2Content;
+
+      const block = WebImporter.DOMUtils.createTable([
+        // 1 row (table head)
+        ['hero'],
+        // 2 row
+        [img],
+        [h1Txt,h2Txt]
+        
       ], document);
 
       container.replaceWith(block);
