@@ -15,6 +15,33 @@
 // helix-importer-ui <-> node compatibility:
 if (window) window.decodeHtmlEntities = (text) => text; // not-needed in browser
 
+function createHeroBlock({ main, document }) {
+  [...main.querySelectorAll('.cmp-container')].some((container) => {
+    if (container.getAttribute('style')?.match(/background-image/)) {
+      // parse background-image from style
+      const imgSrc = '';
+      const img = document.createElement('img');
+      img.src = imgSrc;
+
+      // find all text elements
+      const textContent = [...container.querySelectorAll('p', 'h1', 'h2')];
+
+      const block = WebImporter.DOMUtils.createTable([
+        // 1 row (table head)
+        ['hero'],
+        // 2 row
+        [img],
+        // 3 row
+        [textContent],
+      ], document);
+
+      container.replaceWith(block);
+      return true;
+    }
+    return false;
+  });
+}
+
 export default {
   /**
    * Apply DOM operations to the provided document and return
@@ -34,6 +61,8 @@ export default {
 
     // use helper method to remove header, footer, etc.
     WebImporter.DOMUtils.remove(main, []);
+
+    createHeroBlock({ main, document });
 
     return main;
   },
