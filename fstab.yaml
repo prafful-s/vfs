@@ -1,6 +1,5 @@
 mountpoints:
-  /: 
-  url: https://245265-xwalk-vfsglobaldemo.adobeioruntime.net/api/v1/web/convert/main/
-  type: markup
-  suffix: ".html?wcmmode=disabled"
-
+  /:
+    url: "https://245265-xwalk-vfsglobaldemo.adobeioruntime.net/api/v1/web/convert/main"
+    type: "markup"
+    suffix: ".html?wcmmode=disabled"
