@@ -56,8 +56,7 @@ function createTextContentBlock({ main, document }) {
       // parse background-image from style
       // find all text elements
       // const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
-      // const h1Content = container.querySelector('h2').innerHTML;
-      // const pContent = container.querySelector('p').innerHTML;
+      
       const parentDiv = document.createElement('div');
       [...container.querySelectorAll('h2,h1,p,ul')].some((elem) => {
         if (elem.tagName.toUpperCase() === 'H2') {
@@ -82,12 +81,7 @@ function createTextContentBlock({ main, document }) {
         }
         return false;
       });
-      // const h1Txt = document.createElement('h1');
-      // h1Txt.innerHTML = h1Content;
-
-      // const h2Txt = document.createElement('h2');
-      // h2Txt.innerHTML = pContent;
-
+   
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
         ['textcont'],
