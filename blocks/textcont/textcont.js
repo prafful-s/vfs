@@ -1,6 +1,6 @@
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
-  block.classList.add(`hero-${cols.length}`);
+  block.classList.add(`hero-wrapper}`);
   // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
