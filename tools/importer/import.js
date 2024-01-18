@@ -48,7 +48,7 @@ function createHeroBlock({ main, document }) {
   });
 }
 
-function createTeaserBlock({ main, document }) {
+function createTextContentBlock({ main, document }) {
   [...main.querySelectorAll('.cmp-text--primary')].some((container) => {
     if (container.querySelector('.cmp-text')) {
       // parse background-image from style
@@ -88,7 +88,7 @@ function createTeaserBlock({ main, document }) {
 
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
-        ['cards'],
+        ['textcont'],
         [parentDiv],
       ], document);
 
@@ -120,7 +120,7 @@ export default {
     WebImporter.DOMUtils.remove(main, []);
 
     createHeroBlock({ main, document });
-    createTeaserBlock({ main, document });
+    createTextContentBlock({ main, document });
 
     return main;
   },

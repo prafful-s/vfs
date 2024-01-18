@@ -1,6 +1,5 @@
 export default function decorate(block) {
  // const cols = [...block.firstElementChild.children];
-  console.log("123");
   block.classList.add(`text-content-wrapper`);
   // setup image columns
   [...block.children].forEach((row) => {

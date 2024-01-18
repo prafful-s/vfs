@@ -1,4 +1,5 @@
 export default function decorate(block) {
+
   const cols = [...block.firstElementChild.children];
   block.classList.add(`hero1-${cols.length}`);
   // setup image columns
