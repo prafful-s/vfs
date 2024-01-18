@@ -24,7 +24,6 @@ function createHeroBlock({ main, document }) {
       img.src = imgSrc;
 
       // find all text elements
-      //const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
       const h1Content = [...container.querySelectorAll('h1')][0].innerHTML;
       const h2Content = [...container.querySelectorAll('h2')][0].innerHTML;
       
@@ -106,6 +105,7 @@ export default {
     WebImporter.DOMUtils.remove(main, []);
 
     createHeroBlock({ main, document });
+    createTeaserBlock({ main, document });
 
     return main;
   },
