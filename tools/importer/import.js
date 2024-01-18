@@ -15,40 +15,7 @@
 // helix-importer-ui <-> node compatibility:
 if (window) window.decodeHtmlEntities = (text) => text; // not-needed in browser
 
-function createHeroBlock({ main, document }) {
-  [...main.querySelectorAll('.cmp-container')].some((container) => {
-    if (container.getAttribute('style')?.match(/background-image/)) {
-      // parse background-image from style
-      const imgSrc = container.getAttribute('style');
-      var regexp1 = "(?:\(['\"]?)(.*?)(?:['\"]?\))";
-      const result = imgSrc.match(regexp1); 
-      const img = document.createElement('img');
-      img.src = decodeURI("\2f content\2f dam\2fvfs\2f 30b7cb4.jpeg");
-      // find all text elements
-      const h1Content = [...container.querySelectorAll('h1')][0].textContent;
-      const h2Content = [...container.querySelectorAll('h2')][0].textContent;
 
-      const h1Txt = document.createElement('h1');
-      h1Txt.textContent = h1Content;
-
-      const h2Txt = document.createElement('h2');
-      h2Txt.textContent = h2Content;
-
-      const block = WebImporter.DOMUtils.createTable([
-        // 1 row (table head)
-        ['hero'],
-        // 2 row
-        [img],
-        [h2Txt],
-
-      ], document);
-
-      container.replaceWith(block);
-      return true;
-    }
-    return false;
-  });
-}
 
 function createTextContentBlock({ main, document }) {
   [...main.querySelectorAll('.cmp-text--primary')].some((container) => {
@@ -115,7 +82,7 @@ export default {
     // use helper method to remove header, footer, etc.
     WebImporter.DOMUtils.remove(main, []);
 
-    createHeroBlock({ main, document });
+   // createHeroBlock({ main, document });
     createTextContentBlock({ main, document });
 
     return main;
