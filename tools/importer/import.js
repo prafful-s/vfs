@@ -116,6 +116,22 @@ function createTextContentBlock({ main, document }) {
   });
 }
 
+function creaeteHeader({ main }) {
+  const logoContainer = main.querySelector('.aem-Grid div.image');
+  // insert a section divider, first section contains the logo
+  logoContainer.insertAdjacentHTML('afterend', '<hr>');
+
+  const navContainer = main.querySelector('.aem-Grid div.navigation');
+  // insert a section divider, second section contains the navigation list
+  navContainer.insertAdjacentHTML('afterend', '<hr>');
+
+  // last section contains the cta
+  const buttonContainer = main.querySelector('.aem-Grid div.button');
+
+  // remove any remaining content
+  while (buttonContainer.nextElementSibling) buttonContainer.nextElementSibling.remove();
+}
+
 export default {
   /**
    * Apply DOM operations to the provided document and return
@@ -128,16 +144,23 @@ export default {
    */
   transformDOM: async ({
     // eslint-disable-next-line no-unused-vars
-    document, url, html, params,
+    document, url: urlStr, html, params,
   }) => {
     // define the main element: the one that will be transformed to Markdown
+    const url = new URL(urlStr);
     const main = document.body;
 
     // use helper method to remove header, footer, etc.
     WebImporter.DOMUtils.remove(main, []);
 
-    createHeroBlock({ main, document });
-    createTextContentBlock({ main, document });
+    if (url.pathname === '/content/experience-fragments/vfs/us/en/site/header/master.html') {
+      // header fragment
+      creaeteHeader({ main, document });
+    } else {
+      // regular pages
+      createHeroBlock({ main, document });
+      createTextContentBlock({ main, document });
+    }
 
     return main;
   },
