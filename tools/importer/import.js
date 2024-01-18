@@ -120,13 +120,16 @@ function createHeader({ main }) {
   const logoContainer = main.querySelector('.aem-Grid div.image');
   // insert a section divider, first section contains the logo
   logoContainer.insertAdjacentHTML('afterend', '<hr>');
+  logoContainer.classList.add("header-logo-cls");
 
   const navContainer = main.querySelector('.aem-Grid div.navigation');
   // insert a section divider, second section contains the navigation list
   navContainer.insertAdjacentHTML('afterend', '<hr>');
+  navContainer.classList.add("header-nav-cls");
 
   // last section contains the cta
   const buttonContainer = main.querySelector('.aem-Grid div.button');
+  navContainer.classList.add("header-button-cls");
 
   // remove any remaining content
   while (buttonContainer.nextElementSibling) buttonContainer.nextElementSibling.remove();
@@ -152,7 +155,9 @@ export default {
     const main = document.body;
 
     // use helper method to remove header, footer, etc.
-    WebImporter.DOMUtils.remove(main, []);
+    WebImporter.DOMUtils.remove(main, [
+      'div.page > div.cmp-experiencefragment--evisa-header'
+    ]);
 
     if (url.pathname === '/content/experience-fragments/vfs/us/en/site/header/master.html') {
       // header fragment

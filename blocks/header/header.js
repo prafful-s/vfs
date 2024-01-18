@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -101,9 +102,18 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['notify', 'logo', 'mTitle','logo2','navlink'];
+  /*const notifyDivContent = nav.querySelector(".default-content-wrapper").querySelector("h2");
+  const notifyDiv = document.createElement("div");
+  notifyDiv.textContent = notifyDivContent;
+  notifyDiv.classList.add("notify-div");
+
+  const logoContent = nav.querySelector(".default-content-wrapper").querySelector("picture");
+  logoContent.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  logoContent.classList.add("logo-div");*/
+
   classes.forEach((c, i) => {
-    const section = nav.children[i];
+    const section = nav.querySelector(".default-content-wrapper").children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
