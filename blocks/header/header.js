@@ -102,7 +102,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['notify', 'logo', 'mTitle','logo2','navlink'];
+  const classes = ['notify', 'logo', 'tools','sections','brand'];
   /*const notifyDivContent = nav.querySelector(".default-content-wrapper").querySelector("h2");
   const notifyDiv = document.createElement("div");
   notifyDiv.textContent = notifyDivContent;

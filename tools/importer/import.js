@@ -154,20 +154,22 @@ export default {
     const url = new URL(urlStr);
     const main = document.body;
 
-    // use helper method to remove header, footer, etc.
-    WebImporter.DOMUtils.remove(main, [
-      'div.page > div.cmp-experiencefragment--evisa-header'
-    ]);
+   
 
     if (url.pathname === '/content/experience-fragments/vfs/us/en/site/header/master.html') {
       // header fragment
       createHeader({ main, document });
     } else {
+      WebImporter.DOMUtils.remove(main, [
+        'div.cmp-experiencefragment--evisa-header'
+      ]);
       // regular pages
+      
       createHeroBlock({ main, document });
       createTextContentBlock({ main, document });
     }
-
+    // use helper method to remove header, footer, etc.
+   
     return main;
   },
 
