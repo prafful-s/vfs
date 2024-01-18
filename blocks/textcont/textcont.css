@@ -2,8 +2,9 @@ main .hero-container > div {
   max-width: unset;
 }
   
-main .hero-container {
+main .text-content-wrapper {
   padding: 0;
+  background-color: red;
 }
 
 .hero {
