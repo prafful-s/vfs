@@ -19,25 +19,27 @@ function createHeroBlock({ main, document }) {
   [...main.querySelectorAll('.cmp-container')].some((container) => {
     if (container.getAttribute('style')?.match(/background-image/)) {
       // parse background-image from style
-      const imgSrc = 'https://www.vfsglobal.com/india-evisa-uk/assets/images/vfs-images/banner-content.png';
+      const imgSrc = container.getAttribute('style');
+      var regexp1 = "(?:\(['\"]?)(.*?)(?:['\"]?\))";
+      const result = imgSrc.match(regexp1); 
       const img = document.createElement('img');
-      img.src = imgSrc;
+      img.src = decodeURI("\2f content\2f dam\2fvfs\2f 30b7cb4.jpeg");
       // find all text elements
-      const h1Content = [...container.querySelectorAll('h1')][0].innerHTML;
-      const h2Content = [...container.querySelectorAll('h2')][0].innerHTML;
+      const h1Content = [...container.querySelectorAll('h1')][0].textContent;
+      const h2Content = [...container.querySelectorAll('h2')][0].textContent;
 
       const h1Txt = document.createElement('h1');
-      h1Txt.innerHTML = h1Content;
+      h1Txt.textContent = h1Content;
 
       const h2Txt = document.createElement('h2');
-      h2Txt.innerHTML = h2Content;
+      h2Txt.textContent = h2Content;
 
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
         ['hero'],
         // 2 row
         [img],
-        [h1Txt, h2Txt],
+        [h2Txt],
 
       ], document);
 
