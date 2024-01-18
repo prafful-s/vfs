@@ -22,13 +22,10 @@ function createHeroBlock({ main, document }) {
       const imgSrc = 'https://www.vfsglobal.com/india-evisa-uk/assets/images/vfs-images/banner-content.png';
       const img = document.createElement('img');
       img.src = imgSrc;
-
       // find all text elements
-      //const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
       const h1Content = [...container.querySelectorAll('h1')][0].innerHTML;
       const h2Content = [...container.querySelectorAll('h2')][0].innerHTML;
-      
-    
+
       const h1Txt = document.createElement('h1');
       h1Txt.innerHTML = h1Content;
 
@@ -40,8 +37,8 @@ function createHeroBlock({ main, document }) {
         ['hero'],
         // 2 row
         [img],
-        [h1Txt,h2Txt]
-        
+        [h1Txt, h2Txt],
+
       ], document);
 
       container.replaceWith(block);
@@ -52,30 +49,47 @@ function createHeroBlock({ main, document }) {
 }
 
 function createTeaserBlock({ main, document }) {
-  [...main.querySelectorAll('.cmp-container')].some((container) => {
-    if (container.querySelector(".cmp-text")) {
+  [...main.querySelectorAll('.cmp-text--primary')].some((container) => {
+    if (container.querySelector('.cmp-text')) {
       // parse background-image from style
-      
-
       // find all text elements
-      //const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
-      const h1Content = container.querySelector('h2').innerHTML;
-      const pContent = container.querySelector('p').innerHTML;
-      
-    
-      const h1Txt = document.createElement('h1');
-      h1Txt.innerHTML = h1Content;
+      // const textContent = [...container.querySelectorAll('.cmp-text','p' ,'h1', 'h2')];
+      // const h1Content = container.querySelector('h2').innerHTML;
+      // const pContent = container.querySelector('p').innerHTML;
+      const parentDiv = document.createElement('div');
+      [...container.querySelectorAll('h2,h1,p,ul')].some((elem) => {
+        if (elem.tagName.toUpperCase() === 'H2') {
+          const h2elem = document.createElement('h2');
+          h2elem.textContent = elem.textContent;
+          parentDiv.append(h2elem);
+        }
+        if (elem.tagName.toUpperCase() === 'P') {
+          const h2elem = document.createElement('p');
+          h2elem.textContent = elem.textContent;
+          parentDiv.append(h2elem);
+        }
+        if (elem.tagName.toUpperCase() === 'UL') {
+          const ulelem = document.createElement('ul');
+          [...elem.querySelectorAll('li')].some((elem1) => {
+            const lielem = document.createElement('li');
+            lielem.textContent = elem1.textContent;
+            ulelem.append(lielem);
+            return false;
+          });
+          parentDiv.append(ulelem);
+        }
+        return false;
+      });
+      // const h1Txt = document.createElement('h1');
+      // h1Txt.innerHTML = h1Content;
 
-      const h2Txt = document.createElement('h2');
-      h2Txt.innerHTML = h2Content;
+      // const h2Txt = document.createElement('h2');
+      // h2Txt.innerHTML = pContent;
 
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
-        ['hero'],
-        // 2 row
-        [img],
-        [h1Txt,h2Txt]
-        
+        ['textcont'],
+        [parentDiv],
       ], document);
 
       container.replaceWith(block);
@@ -106,6 +120,7 @@ export default {
     WebImporter.DOMUtils.remove(main, []);
 
     createHeroBlock({ main, document });
+    createTeaserBlock({ main, document });
 
     return main;
   },
