@@ -24,22 +24,43 @@ function createHeroBlock({ main, document }) {
       const result = imgSrc.match(regexp1); 
       const img = document.createElement('img');
       img.src = "";
-      // find all text elements
-      const h1Content = [...container.querySelectorAll('h1')][0].textContent;
-      const h2Content = [...container.querySelectorAll('h2')][0].textContent;
+      const parentDiv = document.createElement('div');
+      [...container.querySelectorAll('h2,h1,p,ul')].some((elem) => {
+        if (elem.tagName.toUpperCase() === 'H2') {
+          const h2elem = document.createElement('h2');
+          h2elem.textContent = elem.textContent;
+          parentDiv.append(h2elem);
+        }
+        if (elem.tagName.toUpperCase() === 'P') {
+          const h2elem = document.createElement('p');
+          h2elem.textContent = elem.textContent;
+          parentDiv.append(h2elem);
+        }
+        if (elem.tagName.toUpperCase() === 'UL') {
+          const ulelem = document.createElement('ul');
+          [...elem.querySelectorAll('li')].some((elem1) => {
+            const lielem = document.createElement('li');
+            lielem.textContent = elem1.textContent;
+            ulelem.append(lielem);
+            return false;
+          });
+          parentDiv.append(ulelem);
+        }
+        return false;
+      });
 
-      const h1Txt = document.createElement('h1');
-      h1Txt.textContent = h1Content;
+     // const h1Txt = document.createElement('h3');
+     // h1Txt.textContent = h1Content;
 
-      const h2Txt = document.createElement('h2');
-      h2Txt.textContent = h2Content;
+     // const h2Txt = document.createElement('h2');
+     // h2Txt.textContent = h2Content;
 
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
         ['hero'],
         // 2 row
         [img],
-        [h2Txt],
+        [parentDiv],
 
       ], document);
 
