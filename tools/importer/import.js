@@ -169,7 +169,11 @@ export default {
       createTextContentBlock({ main, document });
     }
     // use helper method to remove header, footer, etc.
-   
+    WebImporter.DOMUtils.remove(main, [
+      'header',
+      'footer'
+    ]);
+    
     return main;
   },
 
