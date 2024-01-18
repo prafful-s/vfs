@@ -48,7 +48,7 @@ function createHeroBlock({ main, document }) {
   });
 }
 
-function createTeaserBlock({ main, document }) {
+function createTextContentBlock({ main, document }) {
   [...main.querySelectorAll('.cmp-text--primary')].some((container) => {
     if (container.querySelector('.cmp-text')) {
       // parse background-image from style
@@ -120,7 +120,7 @@ export default {
     WebImporter.DOMUtils.remove(main, []);
 
     createHeroBlock({ main, document });
-    createTeaserBlock({ main, document });
+    createTextContentBlock({ main, document });
 
     return main;
   },
