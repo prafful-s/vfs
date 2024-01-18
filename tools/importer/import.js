@@ -88,7 +88,7 @@ function createTeaserBlock({ main, document }) {
 
       const block = WebImporter.DOMUtils.createTable([
         // 1 row (table head)
-        ['textcont'],
+        ['cards'],
         [parentDiv],
       ], document);
 
