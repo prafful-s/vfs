@@ -116,7 +116,7 @@ function createTextContentBlock({ main, document }) {
   });
 }
 
-function creaeteHeader({ main }) {
+function createHeader({ main }) {
   const logoContainer = main.querySelector('.aem-Grid div.image');
   // insert a section divider, first section contains the logo
   logoContainer.insertAdjacentHTML('afterend', '<hr>');
@@ -130,6 +130,7 @@ function creaeteHeader({ main }) {
 
   // remove any remaining content
   while (buttonContainer.nextElementSibling) buttonContainer.nextElementSibling.remove();
+  
 }
 
 export default {
@@ -155,7 +156,7 @@ export default {
 
     if (url.pathname === '/content/experience-fragments/vfs/us/en/site/header/master.html') {
       // header fragment
-      creaeteHeader({ main, document });
+      createHeader({ main, document });
     } else {
       // regular pages
       createHeroBlock({ main, document });
