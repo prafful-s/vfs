@@ -102,7 +102,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['notify', 'logo', 'tools','sections','brand'];
+  const classes = ['notify', 'logo', 'tools','sections','brand','button'];
   /*const notifyDivContent = nav.querySelector(".default-content-wrapper").querySelector("h2");
   const notifyDiv = document.createElement("div");
   notifyDiv.textContent = notifyDivContent;
@@ -117,12 +117,13 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  const navBrand = nav.querySelector('.nav-brand');
+  const navBrand = nav.querySelector('.nav-button');
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
+
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {

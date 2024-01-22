@@ -27,9 +27,14 @@ header .nav-logo{
 header .nav-logo img{
   float:left;
   width:200px;
+  height:auto;
+}
+header .nav-sections{
+  float:left;
+  width:16%;
 }
 
-header .nav-sections{
+header .nav-brand{
   float:left;
   width:60%;
 }
