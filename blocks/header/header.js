@@ -137,6 +137,7 @@ export default async function decorate(block) {
         }
       });
     });
+    navSections.insertAdjacentHTML('afterend', '<hr>');
   }
 
   // hamburger for mobile
