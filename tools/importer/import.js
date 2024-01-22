@@ -87,14 +87,14 @@ function createTextContentBlock({ main, document }) {
         }
         if (elem.tagName.toUpperCase() === 'P') {
           const h2elem = document.createElement('p');
-          h2elem.textContent = elem.textContent;
+          h2elem.innerHTML = elem.innerHTML;
           parentDiv.append(h2elem);
         }
         if (elem.tagName.toUpperCase() === 'UL') {
           const ulelem = document.createElement('ul');
           [...elem.querySelectorAll('li')].some((elem1) => {
             const lielem = document.createElement('li');
-            lielem.textContent = elem1.textContent;
+            lielem.innerHTML = elem1.innerHTML;
             ulelem.append(lielem);
             return false;
           });
@@ -110,7 +110,7 @@ function createTextContentBlock({ main, document }) {
       ], document);
 
       container.replaceWith(block);
-      return true;
+     // return true;
     }
     return false;
   });
