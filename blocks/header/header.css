@@ -20,7 +20,19 @@ header nav {
   padding: 0 1rem;
   font-family: var(--body-font-family);
 }
+header .nav-logo{
+  float:left;
+  width:16%
+}
+header .nav-logo img{
+  float:left;
+  width:200px;
+}
 
+header .nav-sections{
+  float:left;
+  width:60%;
+}
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger brand' var(--nav-height)
