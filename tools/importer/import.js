@@ -108,19 +108,9 @@ function createTextContentBlock({ main, document }) {
         [parentDiv],
       ], document);
      
-    //  container.replaceWith(block);
+      container.replaceWith(block);
 
-      const table =  WebImporter.DOMUtils.createTable([
-        // 1 row (table head)
-        ['textcont'],
-        [parentDiv],
-      ], document);
-      const container1 = document.createElement('div');
-     // container1.insertAdjacentHTML('beforeend', container.innerHTML);
-      container1.append(table);
-     
-      container.outerHTML = container1.innerHTML;
-    
+      
     }
     return false;
   });
