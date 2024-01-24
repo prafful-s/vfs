@@ -21,12 +21,25 @@ export default function decorate(block) {
                       }
                    
                      var imageWrapperElements = document.getElementsByClassName("image-wrapper");
-
-              
                       for (var i = 0; i < imageWrapperElements.length; i++) {
                         var siblingDiv = imageWrapperElements[i].nextElementSibling;
                         siblingDiv.classList.add("text-wrapper");
                       }
+                      var imgElement = document.querySelector(".hero1-img-col img")
+                      var imageUrl = imgElement.src;
+
+                      // Set the background image for the hero div
+                      var heroDiv = document.querySelector(".hero.block.hero1-1");
+                      heroDiv.style.backgroundImage = "url('" + imageUrl + "')";
+            
+                     // Set the width and height dynamically
+                     heroDiv.style.width = '100%';
+                     heroDiv.style.height = '400px';
+
+                      // Set background image and other properties
+                      
+                      heroDiv.style.backgroundSize = 'cover';
+                      heroDiv.style.backgroundPosition = 'center';
 
             }
           }
