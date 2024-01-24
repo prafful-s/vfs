@@ -12,8 +12,8 @@
 
 :root {
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
+  --link-color: #cf430c;
+  --link-hover-color: #cf430c;
   --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
@@ -74,7 +74,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  /*height: var(--nav-height);*/
 }
 
 h1, h2, h3,

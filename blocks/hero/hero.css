@@ -6,50 +6,45 @@ main .hero-container {
   padding: 0;
 }
 
-.hero {
-  position: relative;
-  padding: 32px;
-   /* min-height: 300px;*/
-}
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
+.hero-wrapper {
   width: 100%;
-  height: 100%;
+  max-width: unset !important;
 }
-.hero-container .hero-wrapper {
-  max-width: 100%;
+.hero.block.hero1-1 {
   position: relative;
+}
+.hero.block.hero1-1 .image-wrapper {
+  width: 100%;
+}
+.hero.block.hero1-1 .image-wrapper picture {
   height: 500px;
+  display: block;
+}
+.hero.block.hero1-1 .text-wrapper {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  color: #ffff;
+  width: 60%;
   
 }
-/*.hero-container .hero-wrapper img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
+.hero.block.hero1-1 img{
+width: 100%;
+height: 80%;
 }
 
-.hero-container .hero-wrapper .button,.text{
-     position:relative;
-     z-index:1;
- }
-*/
+.hero.block.hero1-1 .text-wrapper p a {
+  background-color: #cf430c;
+  color: #ffffff !important;
+  border: 1px solid #cf430c;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  border-radius: 14px;
+  padding: 10px 20px !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 50px;
+  margin-top: 15px;
+  display: inline-block;
+}

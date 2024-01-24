@@ -7,19 +7,8 @@ main .text-content-wrapper {
 
 }
 
-.hero {
-  position: relative;
-  padding: 32px;
- /* min-height: 300px;*/
-}
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
-}
-
+/*
 .hero picture {
   position: absolute;
   z-index: -1;
@@ -32,4 +21,4 @@ main .text-content-wrapper {
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
+}*/

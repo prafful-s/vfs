@@ -11,4 +11,9 @@ footer .footer {
 
 footer .footer p {
   margin: 0;
+  margin-top:10px;
+}
+.footer.block a {
+  color: #62707c !important;
+  padding-right: 10px;
 }
