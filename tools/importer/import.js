@@ -37,38 +37,13 @@ function createHeroBlock({ main, document }) {
         return false;
       });
 
-      [...container.querySelectorAll('.cmp-btn--primary')].some((elem) => {
-        [...elem.querySelectorAll('button')].some((btnelem) => {
+      [...container.querySelectorAll('.cmp-button')].some((elem) => {
+       // [...elem.querySelectorAll('button')].some((btnelem) => {
           const btnelement = document.createElement('button');
-          btnelement.innerHTML = btnelem.innerHTML;
+          btnelement.innerHTML = elem.innerHTML;
           parentDiv.append(btnelement);
-          return false;
-        });
-        return false;
-      });
-
-      
-      [...container.querySelectorAll('h2,h1,p,ul')].some((elem) => {
-        if (elem.tagName.toUpperCase() === 'H3') {
-          const h2elem = document.createElement('h2');
-          h2elem.textContent = elem.textContent;
-          parentDiv.append(h2elem);
-        }
-        if (elem.tagName.toUpperCase() === 'P') {
-          const h2elem = document.createElement('p');
-          h2elem.textContent = elem.textContent;
-          parentDiv.append(h2elem);
-        }
-        if (elem.tagName.toUpperCase() === 'UL') {
-          const ulelem = document.createElement('ul');
-          [...elem.querySelectorAll('li')].some((elem1) => {
-            const lielem = document.createElement('li');
-            lielem.textContent = elem1.textContent;
-            ulelem.append(lielem);
-            return false;
-          });
-          parentDiv.append(ulelem);
-        }
+         // return false;
+       // });
         return false;
       });
 
