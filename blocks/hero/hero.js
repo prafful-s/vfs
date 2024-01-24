@@ -13,7 +13,12 @@ export default function decorate(block) {
               picWrapper.classList.add('hero1-img-col');
             }
           }
+     
       });
+      const btn = row.querySelector('a');
+      if(btn){
+       btn.classList.add('hero-btn');
+      }
     });
   }
   
