@@ -1,5 +1,5 @@
 main .hero-container > div {
-  max-width: unset;
+/*max-width: unset;*/
 }
   
 main .text-content-wrapper {
@@ -10,7 +10,7 @@ main .text-content-wrapper {
 .hero {
   position: relative;
   padding: 32px;
-  min-height: 300px;
+ /* min-height: 300px;*/
 }
 
 .hero h1 {
