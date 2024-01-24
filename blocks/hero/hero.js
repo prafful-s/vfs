@@ -30,7 +30,12 @@ export default function decorate(block) {
 
             }
           }
+     
       });
+      const btn = row.querySelector('a');
+      if(btn){
+       btn.classList.add('hero-btn');
+      }
     });
   }
   
