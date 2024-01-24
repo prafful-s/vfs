@@ -17,16 +17,39 @@ if (window) window.decodeHtmlEntities = (text) => text; // not-needed in browser
 
 function createHeroBlock({ main, document }) {
   [...main.querySelectorAll('.cmp-container')].some((container) => {
-    if (container.getAttribute('style')?.match(/background-image/)) {
-      // parse background-image from style
-      const imgSrc = container.getAttribute('style');
-      var regexp1 = "(?:\(['\"]?)(.*?)(?:['\"]?\))";
-      const result = imgSrc.match(regexp1); 
-      const img = document.createElement('img');
-      img.src = "";
+    if (container.getAttribute('id')?.match(/hero-container/)) {
       const parentDiv = document.createElement('div');
+      const img = document.createElement('img');
+      // parse background-image from style
+      [...container.querySelectorAll('img')].some((elem) => {
+       
+        img.src =  elem.getAttribute('src');
+        return false;
+      });
+
+      [...container.querySelectorAll('.cmp-text--secondary')].some((elem) => {
+        [...elem.querySelectorAll('h3')].some((h3elem) => {
+          const h3element = document.createElement('h3');
+          h3element.innerHTML = h3elem.innerHTML;
+          parentDiv.append(h3element);
+          return false;
+        });
+        return false;
+      });
+
+      [...container.querySelectorAll('.cmp-btn--primary')].some((elem) => {
+        [...elem.querySelectorAll('button')].some((btnelem) => {
+          const btnelement = document.createElement('button');
+          btnelement.innerHTML = btnelem.innerHTML;
+          parentDiv.append(btnelement);
+          return false;
+        });
+        return false;
+      });
+
+      
       [...container.querySelectorAll('h2,h1,p,ul')].some((elem) => {
-        if (elem.tagName.toUpperCase() === 'H2') {
+        if (elem.tagName.toUpperCase() === 'H3') {
           const h2elem = document.createElement('h2');
           h2elem.textContent = elem.textContent;
           parentDiv.append(h2elem);
