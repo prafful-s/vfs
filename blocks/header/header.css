@@ -8,6 +8,8 @@ header .nav-wrapper {
 }
 .nav-notify{
   font-size:20px;
+  margin-top: 0;
+  padding-top: 20px;
 }
 header nav {
   box-sizing: border-box;
@@ -43,10 +45,10 @@ header .nav-tools{
   
   float:left;
 }
-header .nav-brand{
+/*header .nav-brand{
   float:left;
   width:80%;
-}
+}*/
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -90,9 +92,9 @@ header nav .nav-hamburger {
   display: flex;
   align-items: center;
 }
-header .nav-button{
+/*header .nav-button{
   float:left;
-}
+}*/
 header nav .nav-hamburger button {
   height: 22px;
   margin: 0;
@@ -173,6 +175,8 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  width: 80%;
+  display: inline-block;
 }
 
 header nav .nav-brand img {
@@ -353,4 +357,8 @@ p.nav-button {
   padding: 10px 20px !important;
   text-decoration: none;
   text-transform: uppercase;
+  display: inline-block;
 }
+
+
+
