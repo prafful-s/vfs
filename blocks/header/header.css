@@ -2,6 +2,9 @@
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
+  z-index: 2;
+  position: relative;
+ 
 }
 .nav-notify{
   font-size:20px;
@@ -19,10 +22,12 @@ header nav {
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: var(--body-font-family);
+
+  
 }
 header .nav-logo{
   float:left;
-  width:16%
+  width:22%
 }
 header .nav-logo img{
   float:left;
@@ -35,12 +40,12 @@ header .nav-sections{
 }
 header .nav-tools{
   margin:30px;
-  font-size:50px;
+  
   float:left;
 }
 header .nav-brand{
   float:left;
-  width:60%;
+  width:80%;
 }
 header nav[aria-expanded="true"] {
   grid-template:
@@ -199,6 +204,10 @@ header nav .nav-sections ul  {
 
 header nav .nav-sections ul > li {
   font-weight: 700;
+  position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    padding-bottom: 20px;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -251,8 +260,10 @@ header nav .nav-sections ul > li > ul > li {
     gap: 2em;
     margin: 0;
     font-size: var(--body-font-size-xs);
-  }
+    list-style: none;
 
+  }
+  
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
@@ -294,5 +305,52 @@ header nav .nav-sections ul > li > ul > li {
 
 /* tools */
 header nav .nav-tools {
-  grid-area: tools;
+  width:50%;
+}
+ul.nav-brand {
+  list-style: none;
+  padding-left:0;
+}
+ul.nav-brand li {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  padding-bottom: 20px;
+}
+
+header.header-wrapper {
+  margin: auto;
+  width: 90%;
+}
+
+p.nav-sections picture {
+  margin-top: 30px;
+  display: inline-block;
+}
+.default-content-wrapper hr{
+
+  width:100%;
+}
+header .nav-logo img {
+ margin-bottom: 30px;
+}
+nav#nav {
+  min-width: 90%;
+  margin: auto;
+}
+ul.nav-brand li {
+  font-size: 18px;
+  font-weight: 500;
+}
+p.nav-button {
+  background-color: transparent;
+  margin-top: 12px;
+  color: #cf430c !important;
+  border: 1px solid #cf430c !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  border-radius: 14px;
+  padding: 10px 20px !important;
+  text-decoration: none;
+  text-transform: uppercase;
 }
