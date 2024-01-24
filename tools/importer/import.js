@@ -40,7 +40,8 @@ function createHeroBlock({ main, document }) {
       [...container.querySelectorAll('.cmp-button')].some((elem) => {
        // [...elem.querySelectorAll('button')].some((btnelem) => {
           const btnelement = document.createElement('a');
-          btnelement.innerHTML = elem.innerHTML;
+          btnelement.href = elem.href;
+          btnelement.textContent = elem.textContent;
           parentDiv.append(btnelement);
          // return false;
        // });
