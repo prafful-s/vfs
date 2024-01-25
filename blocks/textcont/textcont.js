@@ -4,8 +4,8 @@ export default function decorate(block) {
   // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
-      const pic = col.querySelector('h2');
-      h2.classList.add(`text-content-h2`);
+      const h2 = col.querySelector('h2');
+      h2?.classList.add(`text-content-h2`);
       });
     });
   }
