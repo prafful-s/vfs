@@ -35,9 +35,9 @@ main .hero-container {
   flex-direction: column;
  
 }
-.image-wrapper {
+/*.image-wrapper {
   display: none;
-}
+}*/
 .text-wrapper {
   margin-top: 3%;
   width: 60%;

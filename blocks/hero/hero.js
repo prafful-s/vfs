@@ -29,7 +29,7 @@ export default function decorate(block) {
                       var imageUrl = imgElement.src;
 
                       // Set the background image for the hero div
-                      var heroDiv = document.querySelector(".hero.block.hero1-1");
+                     var heroDiv = document.querySelector(".hero.block.hero1-1");
                       heroDiv.style.backgroundImage = "url('" + imageUrl + "')";
                      const picture = document.querySelector(".image-wrapper");
                      picture.innerHTML="";

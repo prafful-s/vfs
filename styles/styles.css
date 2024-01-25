@@ -208,3 +208,44 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
+@media (max-width:767px)  {
+
+  .hero.block.hero1-1{
+    height: 622px !important;
+
+  }
+    header .nav-logo img {
+      width: 70px !important;
+      padding: 30px 16px;
+  }
+  header nav .nav-tools {
+    width: 50%;
+    font-size: 20px;
+}
+  header nav .nav-button, .nav-notify{
+     display:none;
+
+  }
+  header nav[aria-expanded="false"] .section ul.nav-brand {
+    display: none;
+  }
+  ul.nav-brand li{
+     display: block !important;
+
+  }
+  nav#nav {
+    min-width: 90%;
+    margin: auto;
+    height: 161px;
+  }
+  p.nav-sections {
+    display: none;
+ }
+ header.header-wrapper {
+     height: auto;
+  }
+
+  main .text-content-wrapper {
+    padding: 0 20px !important;
+  }
+}
