@@ -38,7 +38,7 @@
   --heading-font-size-xs: 14px;
 
   /* nav height */
-  --nav-height: 306.25px;
+  --nav-height: 161px;
 }
 
 @font-face {
@@ -191,6 +191,10 @@ main .section {
 }
 
 @media (width >= 600px) {
+  :root {
+    --nav-height: 306.25px
+  }
+
   main .section {
     padding: 64px 32px;
   }
@@ -241,9 +245,6 @@ main .section.highlight {
   p.nav-sections {
     display: none;
  }
- header.header-wrapper {
-     height: auto;
-  }
 
   main .text-content-wrapper {
     padding: 0 20px !important;
