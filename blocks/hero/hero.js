@@ -31,7 +31,9 @@ export default function decorate(block) {
                       // Set the background image for the hero div
                       var heroDiv = document.querySelector(".hero.block.hero1-1");
                       heroDiv.style.backgroundImage = "url('" + imageUrl + "')";
-            
+                     const picture = document.querySelector(".image-wrapper");
+                     picture.innerHTML="";
+
                      // Set the width and height dynamically
                      heroDiv.style.width = '100%';
                      heroDiv.style.height = '400px';
