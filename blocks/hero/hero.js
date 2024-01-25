@@ -47,10 +47,15 @@ export default function decorate(block) {
           }
      
       });
-      const btn = row.querySelector('a');
-      if(btn){
-       btn.classList.add('hero-btn');
-      }
+     // const btn = row.querySelector.some('a');
+      [...row.querySelectorAll('a')].some((btn) => {
+        if(btn){
+          btn.classList.add('hero-btn');
+         }
+        return false;
+      });
+
+      
     });
   }
   
