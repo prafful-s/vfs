@@ -1,3 +1,4 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
 export default function decorate(block) {
 
   const cols = [...block.firstElementChild.children];
@@ -27,7 +28,7 @@ export default function decorate(block) {
                       }
                       var imgElement = document.querySelector(".hero1-img-col img")
                       var imageUrl = imgElement.src;
-
+                      imageUrl.forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
                       // Set the background image for the hero div
                      var heroDiv = document.querySelector(".hero.block.hero1-1");
                       heroDiv.style.backgroundImage = "url('" + imageUrl + "')";
@@ -41,7 +42,9 @@ export default function decorate(block) {
                       // Set background image and other properties
                       
                       heroDiv.style.backgroundSize = 'cover';
-                      heroDiv.style.backgroundPosition = 'center';
+            heroDiv.style.backgroundPosition = 'center';
+            
+            
 
             }
           }

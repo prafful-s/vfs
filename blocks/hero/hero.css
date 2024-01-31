@@ -18,7 +18,7 @@ main .hero-container {
   width: 100%;
 }
 .hero.block.hero1-1 .image-wrapper picture {
-  height: 400px;
+  height: 500px;
   display: block;
 }
 
@@ -31,15 +31,19 @@ main .hero-container {
 .hero.block.hero1-1 {
   background-repeat: no-repeat;
   display: flex;
-  height: 400px;
+  height: 500px;
   flex-direction: column;
  
+}
+.hero1-img-col img {
+  width: 100% !important;
+  height: 100% !important;
 }
 /*.image-wrapper {
   display: none;
 }*/
 .text-wrapper {
-  margin-top: 3%;
+  margin-top: -15%;
   width: 60%;
   color: #ffff;
   margin-left: 9%;
